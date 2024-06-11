@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import { UserButton } from "@clerk/nextjs"
 
 const Navbar = () => {
   return (
@@ -14,23 +15,23 @@ const Navbar = () => {
             Scrawlr
           </h1>
         </Link>
-        <Image
+        {/* <Image
           src="/hamburger-menu.svg"
           width={30}
           height={30}
           alt="menu"
           className="block md:hidden"
-        />
+        /> */}
 
-        <ul className="flex-center gap-x-3 max-md:hidden md:gap-x-10">
+        <ul className="flex-center gap-x-3 md:gap-x-10">
           <li className="body-text text-gradient_blue-purple !font-bold">
-            <Link href="">Hello Bachoo!</Link>
+            <Link href="" className="block max-md:hidden">Hello Bachoo!</Link>
           </li>
-          {/* <li className="body-text !font-normal">
-            <Link href="" target="_blank">
-                Book
+          <li className="body-text !font-normal">
+            <Link href="">
+                <UserButton afterSignOutUrl="/sign-in" />
             </Link>
-          </li> */}
+          </li>
         </ul>
       </div>
     </nav>
